@@ -1,5 +1,4 @@
-#ifndef INFINITE_LOOPS_H
-#define INFINITE_LOOPS_H
+#pragma once
 #include "pico/stdlib.h"
 #include <stdbool.h>
 #include "FreeRTOS.h"
@@ -9,4 +8,3 @@ char mainTaskWhileLoop(char c);
 bool blinkTaskWhileLoop(int *count, bool on);
 
 
-#endif

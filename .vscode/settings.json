@@ -38,6 +38,9 @@
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "raspberry-pi-pico.python3Path": "/usr/bin/python3",
     "files.associations": {
-        "infiniteloops.h": "c"
+        "infiniteloops.h": "c",
+        "cyw43_arch.h": "c",
+        "multicore.h": "c",
+        "stdlib.h": "c"
     }
 }
