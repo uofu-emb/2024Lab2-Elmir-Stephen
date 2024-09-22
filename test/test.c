@@ -17,7 +17,8 @@ void test_variable_assignment()
 void test_multiplication(void)
 {
     int x = 30;
-    int y = 6;
+    //int y = 6;
+    int y = 5;
     int z = x / y;
     TEST_ASSERT_TRUE_MESSAGE(z == 5, "Multiplication of two integers returned incorrect value.");
 }
@@ -25,7 +26,7 @@ void test_multiplication(void)
 int main (void)
 {
     stdio_init_all();
-    sleep_ms(5000); // Give time for TTY to attach.
+    sleep_ms(10000); // Give time for TTY to attach.
     printf("Start tests\n");
     UNITY_BEGIN();
     RUN_TEST(test_variable_assignment);
