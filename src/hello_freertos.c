@@ -12,6 +12,7 @@
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
 #include "pico/cyw43_arch.h"
+#include "infiniteLoops.h"
 
 //create variables for counting and setting led on/off
 int count = 0;
@@ -29,8 +30,7 @@ bool on = false;
 void blink_task(__unused void *params) {
     hard_assert(cyw43_arch_init() == PICO_OK);
     while (true) {
-        cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, on);
-        if (count++ % 11) on = !on;
+        on = blinkTaskWhileLoop(&count, on);
         vTaskDelay(500);
     }
 }
@@ -42,9 +42,7 @@ void main_task(__unused void *params) {
     char c;
     while(true) {
         c = getchar();
-        if (c <= 'z' && c >= 'a') putchar(c - 32);
-        else if (c >= 'A' && c <= 'Z') putchar(c + 32);
-        else putchar(c);
+        putchar(mainTaskWhileLoop(c));
     }
 }
 
